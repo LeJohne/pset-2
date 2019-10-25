@@ -1,22 +1,18 @@
 const readlineSync = require("readline-sync");
 
-const hwage = readlineSync.question("\nHourly wage: ");
+const hwage = Number(readlineSync.question("\nHourly wage: "));
 
-let mon = readlineSync.question("\nMonday: ");
-let tue = readlineSync.question("Tuesday: ");
-let wed = readlineSync.question("Wednesday: ");
-let thur = readlineSync.question("Thursday: ");
-let fri = readlineSync.question("Friday: ");
-let sat = readlineSync.question("Saturday: ");
-let sun = readlineSync.question("Sunday: ");
+let mon = Number(readlineSync.question("\nMonday: "));
+let tue = Number(readlineSync.question("Tuesday: "));
+let wed = Number(readlineSync.question("Wednesday: "));
+let thur = Number(readlineSync.question("Thursday: "));
+let fri = Number(readlineSync.question("Friday: "));
+let sat = Number(readlineSync.question("Saturday: "));
+let sun = Number(readlineSync.question("Sunday: "));
 
 let hours = mon + tue + wed + thur + fri + sat + sun;
 let pay = hwage * hours;
-let pay1 = Math.round(pay*100)/100;
-let pay2 = pay1.toLocaleString();
 
-function financial(pay2){
-  return Number.parseFloat(pay2).toFixed(2);
-}
+let pay1 = pay.toLocaleString('en-US', {style : 'currency' , currency: 'USD'});
 
-console.log("\nYou'll make $" + financial(pay2) + "this week." );
+console.log("\nYou'll make " + pay1 + " this week." );
