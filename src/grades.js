@@ -16,11 +16,9 @@ let t1 = readlineSync.question("\nEnter three test grades. \n");
 let t2 = readlineSync.question("");
 let t3 = readlineSync.question("");
 
-let hgrade = ((h1 + h2 + h3) /3) * hweight;
-let qgrade = ((q1 + q2 + q3) /3) * qweight;
-let tgrade = ((t1 + t2 + t3) /3) * tweight;
+let hgrade = (h1 * hweight) + (h2 * hweight) + (h3 * hweight);
+let qgrade = (q1 * qweight) + (q2 * qweight) + (q3 * qweight);
+let tgrade = (t1 * tweight) + (t2 * tweight) + (t3 * tweight);
 let fgrade = (hgrade + qgrade + tgrade) /3;
 
-let d = Math.round(fgrade*100)/100;
-
-console.log("Your marking period grade is " + (d) + "%." );
+console.log("\nYour marking period grade is " + fgrade.toFixed(2) + "%." );
